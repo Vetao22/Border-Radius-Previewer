@@ -30,5 +30,25 @@ namespace Border_Radius_Previewer
             rect.CornerRadius = new CornerRadius(topLeftSlider.Value, topRightSlider.Value,
                                                 bottomRightSlider.Value, bottomLeftSlider.Value);
         }
+
+        public static void CopyUIElementToClipboard(FrameworkElement element)
+        {
+            double width = element.ActualWidth;
+            double height = element.ActualHeight;
+            RenderTargetBitmap bmpCopied = new RenderTargetBitmap((int)Math.Round(width), (int)Math.Round(height), 96, 96, PixelFormats.Default);
+            DrawingVisual dv = new DrawingVisual();
+            using (DrawingContext dc = dv.RenderOpen())
+            {
+                VisualBrush vb = new VisualBrush(element);
+                dc.DrawRectangle(vb, null, new Rect(new Point(), new Size(width, height)));
+            }
+            bmpCopied.Render(dv);
+            Clipboard.SetImage(bmpCopied);
+        }
+
+        private void btnCopyToClipboard_Click(object sender, RoutedEventArgs e)
+        {
+            CopyUIElementToClipboard(rect);
+        }
     }
 }

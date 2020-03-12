@@ -16,6 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <Border x:Name="rect" Grid.Row="0" Margin="10" BorderBrush="AliceBlue" Background="Beige"/>
@@ -73,5 +74,8 @@
             </Grid>
             
         </Grid>
+
+        <Button x:Name="btnCopyToClipboard" Grid.Row="2" Click="btnCopyToClipboard_Click"
+                Content="Copy" Height="30" Width="100" Margin="7 3 5 5" HorizontalAlignment="Left"/>
     </Grid>
 </Window>
