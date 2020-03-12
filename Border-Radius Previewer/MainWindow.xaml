@@ -1,0 +1,77 @@
+﻿<Window x:Class="Border_Radius_Previewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+
+        xmlns:local="clr-namespace:Border_Radius_Previewer"
+        mc:Ignorable="d"
+        Title="Border-Radius Previewer" Height="450" Width="800" WindowState="Maximized">
+
+    <Window.Resources>
+        <System:Double x:Key="maxAngle">360</System:Double>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Border x:Name="rect" Grid.Row="0" Margin="10" BorderBrush="AliceBlue" Background="Beige"/>
+
+        <Grid x:Name="controls" Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Bottom Left: " Grid.Column="0"/>
+                <Slider x:Name="bottomLeftSlider" Grid.Column="1" Margin="3" Minimum="0" Maximum="{StaticResource ResourceKey=maxAngle}"
+                        ValueChanged="ValueChanged"/>
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Top Left: " Grid.Column="0"/>
+                <Slider x:Name="topLeftSlider" Grid.Column="1" Margin="3" Minimum="0" Maximum="{StaticResource ResourceKey=maxAngle}"
+                        ValueChanged="ValueChanged"/>
+            </Grid>
+
+            <Grid Grid.Column="2" Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Top Right: " Grid.Column="0"/>
+                <Slider x:Name="topRightSlider" Grid.Column="1" Margin="3" Minimum="0" Maximum="{StaticResource ResourceKey=maxAngle}"
+                        ValueChanged="ValueChanged"/>
+            </Grid>
+
+            <Grid Grid.Column="3" Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Bottom Right: " Grid.Column="0"/>
+                <Slider x:Name="bottomRightSlider" Grid.Column="1" Margin="3" Minimum="0" Maximum="{StaticResource ResourceKey=maxAngle}"
+                        ValueChanged="ValueChanged"/>
+            </Grid>
+            
+        </Grid>
+    </Grid>
+</Window>
